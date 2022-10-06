@@ -1,0 +1,17 @@
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  .logo-container {
+    border: 1px solid black;
+    .logo {
+      width: 36px;
+      height: 36px;
+    }
+  }
+  .nav-links-container {
+    display: flex;
+    gap: 24px;
+  }
+}
