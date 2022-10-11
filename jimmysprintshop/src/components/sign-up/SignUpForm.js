@@ -24,9 +24,8 @@ const SignUpForm = () => {
     if (password.length < 5) return alert("password too short!");
     if (password !== confirmPassword) return alert("passwords do not match");
     try {
-      const response = await signUpWithEmail(email, password);
-      const userDocRef = await createUser(response.user, { displayName });
-      console.log(userDocRef);
+      const { user } = await signUpWithEmail(email, password);
+      await createUser(user, { displayName });
       resetFields();
     } catch (err) {
       if (err.code === "auth/email-already-in-use") {
@@ -46,7 +45,8 @@ const SignUpForm = () => {
 
   return (
     <div className="sign-up-container">
-      <h1>Sign Up with email</h1>
+      <h2>Don't have an account?</h2>
+      <span>Sign up with your email</span>
       <form onSubmit={handleSubmit}>
         <FormInput
           label="Display Name"
@@ -91,9 +91,7 @@ const SignUpForm = () => {
           }}
         />
 
-        <Button type="submit" buttonType="blue">
-          Sign Up
-        </Button>
+        <Button type="submit">Sign Up</Button>
       </form>
     </div>
   );

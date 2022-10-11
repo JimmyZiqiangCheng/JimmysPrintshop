@@ -24,13 +24,13 @@ $button-blue: #4285f4;
   }
 
   &.blue-button {
-    background-color: $button-blue;
-    color: white;
+    background-color: white;
+    color: $button-blue;
+    border: 1px solid $button-blue;
 
     &:hover {
-      background-color: white;
-      color: $button-blue;
-      border: 1px solid $button-blue;
+      background-color: $button-blue;
+      color: white;
     }
   }
 

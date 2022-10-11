@@ -8,7 +8,6 @@
   border: 0.5px solid black;
   margin: 0 12px 12px;
   overflow: hidden;
-
   &:hover {
     cursor: pointer;
 
@@ -19,6 +18,16 @@
 
     & .category-body-container {
       opacity: 0.9;
+      &:hover {
+        transition: 0.5s ease-out;
+        opacity: 0.85;
+        background-color: black;
+        color: white;
+        h2 {
+          transition: 0.5s ease-out;
+          color: white;
+        }
+      }
     }
   }
 

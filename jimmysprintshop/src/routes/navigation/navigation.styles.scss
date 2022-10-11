@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 8px 12px;
+  padding-bottom: 40px;
   .logo-container {
     border: 1px solid black;
     .logo {
@@ -12,6 +12,11 @@
   }
   .nav-links-container {
     display: flex;
+    text-transform: uppercase;
+    align-items: center;
     gap: 24px;
+    .nav-link {
+      cursor: pointer;
+    }
   }
 }
