@@ -15,7 +15,6 @@ const Navigation = () => {
     await signOutUser();
     setCurrentUser(null);
   };
-
   return (
     <>
       <div className="navigation">
