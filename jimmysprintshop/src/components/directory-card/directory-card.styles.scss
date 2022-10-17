@@ -1,12 +1,11 @@
-.category-container {
+.directory-card-container {
   min-width: 30%;
-  height: 240px;
+  height: 360px;
   flex: 1 1 auto;
   display: flex;
   align-items: center;
   justify-content: center;
   border: 0.5px solid black;
-  margin: 0 12px 12px;
   overflow: hidden;
   &:hover {
     cursor: pointer;
@@ -15,7 +14,7 @@
       transition: transform 6s cubic-bezier(0.25, 0.55, 0.55, 0.95);
     }
 
-    & .category-body-container {
+    & .directory-body-container {
       opacity: 0.9;
       transition: 0.3s ease-in-out;
       &:hover {
@@ -34,12 +33,6 @@
     height: 380px;
   }
 
-  &:first-child {
-  }
-
-  &:last-child {
-  }
-
   .background-image {
     width: 100%;
     height: 100%;
@@ -47,7 +40,7 @@
     background-position: center;
   }
 
-  .category-body-container {
+  .directory-body-container {
     height: 90px;
     padding: 0 25px;
     display: flex;

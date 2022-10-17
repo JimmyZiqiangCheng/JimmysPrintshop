@@ -4,9 +4,14 @@ import { useNavigate } from "react-router-dom";
 import { useOutsideClick } from "../../utils/customHooks/useOutsideClick";
 import Button from "../button/Button";
 import CartItem from "../cart-item/CartItem";
-import "./cart-dropdown.styles.scss";
+import {
+  CartDropdownContainer,
+  EmptyMessage,
+  CartItems,
+  TotalItem,
+} from "./cart-dropdown.styles";
 const CartDropdown = () => {
-  const { setShowCart, cartItems } = useContext(cartContext);
+  const { setShowCart, cartItems, cartTotal } = useContext(cartContext);
   const ref = useOutsideClick(() => setShowCart(false));
   const navigate = useNavigate();
   const handleGoToCheckout = () => {
@@ -14,14 +19,17 @@ const CartDropdown = () => {
     setShowCart(false);
   };
   return (
-    <div className="cart-dropdown-container" ref={ref}>
-      <div className="cart-items">
-        {cartItems.map((item) => (
-          <CartItem key={item.id} cartItem={item} />
-        ))}
-      </div>
+    <CartDropdownContainer ref={ref}>
+      <TotalItem>Total: ${cartTotal}</TotalItem>
+      <CartItems>
+        {cartItems.length ? (
+          cartItems.map((item) => <CartItem key={item.id} cartItem={item} />)
+        ) : (
+          <EmptyMessage>Your cart is empty</EmptyMessage>
+        )}
+      </CartItems>
       <Button onClick={handleGoToCheckout}>Check Out</Button>
-    </div>
+    </CartDropdownContainer>
   );
 };
 

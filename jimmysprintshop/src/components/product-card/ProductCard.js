@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { cartContext } from "../../contexts/cart-context-provider";
-import Button from "../button/Button";
+import Button, { BUTTON_TYPE_CLASSES } from "../button/Button";
 import "./product-card.styles.scss";
 
 const ProductCard = ({ product }) => {
@@ -13,7 +13,7 @@ const ProductCard = ({ product }) => {
       <div className="image-container">
         <img src={product.imageUrl} alt={product.name} />
       </div>
-      <Button buttonType="white" onClick={handleClick}>
+      <Button buttonType={BUTTON_TYPE_CLASSES.white} onClick={handleClick}>
         Add to Cart
       </Button>
       <div className="footer">

@@ -2,7 +2,11 @@ import { useRef, useEffect } from "react";
 export const useOutsideClick = (func) => {
   let ref = useRef();
   const handleClick = (e) => {
-    if (ref.current && !ref.current.contains(e.target)) {
+    if (
+      ref.current &&
+      !ref.current.contains(e.target) &&
+      !ref.current.parentElement.contains(e.target)
+    ) {
       func();
     }
   };
