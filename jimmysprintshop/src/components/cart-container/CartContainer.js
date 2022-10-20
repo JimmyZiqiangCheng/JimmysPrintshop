@@ -6,10 +6,10 @@ import { cartContext } from "../../contexts/cart-context-provider";
 const CartContainer = () => {
   const { showCart } = useContext(cartContext);
   return (
-    <div className="cart-container">
+    <>
       <CartIcon />
       {showCart && <CartDropdown />}
-    </div>
+    </>
   );
 };
 

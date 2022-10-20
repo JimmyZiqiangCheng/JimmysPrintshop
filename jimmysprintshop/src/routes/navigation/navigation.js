@@ -4,7 +4,11 @@ import { ReactComponent as JCLogo } from "../../assets/logo_big.svg";
 import { userContext } from "../../contexts/user-context-provider";
 import { signOutUser } from "../../service/authentication/firebase-auth";
 import CartContainer from "../../components/cart-container/CartContainer";
-import "./navigation.styles.scss";
+import {
+  NavigationContainer,
+  NavLinksContainer,
+  LogoContainer,
+} from "./navigation.styles";
 
 const Navigation = () => {
   const { currentUser, setCurrentUser } = useContext(userContext);
@@ -14,11 +18,11 @@ const Navigation = () => {
   };
   return (
     <>
-      <div className="navigation">
-        <Link className="logo-container" to="/">
+      <NavigationContainer>
+        <LogoContainer to="/">
           <JCLogo className="logo" />
-        </Link>
-        <div className="nav-links-container">
+        </LogoContainer>
+        <NavLinksContainer>
           <Link className="nav-link" to="/">
             Home
           </Link>
@@ -35,8 +39,8 @@ const Navigation = () => {
             </Link>
           )}
           <CartContainer />
-        </div>
-      </div>
+        </NavLinksContainer>
+      </NavigationContainer>
       <Outlet />
     </>
   );

@@ -1,6 +1,11 @@
 import { useContext } from "react";
 import { cartContext } from "../../contexts/cart-context-provider";
-import "./cart-item.styles.scss";
+import {
+  CartItemContainer,
+  ItemImage,
+  ItemDetails,
+  AdjustButton,
+} from "./cart-item.styles";
 
 const CartItem = ({ cartItem }) => {
   const { addItem, reduceItem } = useContext(cartContext);
@@ -12,21 +17,17 @@ const CartItem = ({ cartItem }) => {
     addItem(cartItem);
   };
   return (
-    <div className="cart-item-container">
-      <img className="item-img" src={imageUrl} alt={`${name}`} />
-      <div className="item-details">
+    <CartItemContainer>
+      <ItemImage src={imageUrl} alt={`${name}`} />
+      <ItemDetails>
         <span className="item-name">{name}</span>
         <span className="item-price">
           {quantity} x ${price}
         </span>
-      </div>
-      <div className="adjust-button" onClick={handleDecrease}>
-        &#65293;
-      </div>
-      <div className="adjust-button" onClick={handleIncrease}>
-        &#65291;
-      </div>
-    </div>
+      </ItemDetails>
+      <AdjustButton onClick={handleDecrease}>&#65293;</AdjustButton>
+      <AdjustButton onClick={handleIncrease}>&#65291;</AdjustButton>
+    </CartItemContainer>
   );
 };
 
