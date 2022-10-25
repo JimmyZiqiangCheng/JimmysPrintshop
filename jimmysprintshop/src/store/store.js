@@ -8,19 +8,26 @@ import thunk from "redux-thunk";
 const persistConfig = {
   key: "root",
   storage,
-  blacklist: ["user"],
+  whitelist: ["cart"],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
-const middleWares = [
-  process.env.NODE_ENV !== "production" && logger,
-  thunk,
-].filter(Boolean);
+// const middleWares = [
+//   process.env.NODE_ENV !== "production" && logger,
+// ].filter(Boolean);
+const middleWares = [thunk].filter(Boolean);
 const composeEnhancer =
   (process.env.NODE_ENV !== "production" &&
     window &&
     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
   compose;
+
+// how thunk works essentially
+// const thunk = (store) => (action) => (dispatch) => {
+//   if (typeof action === "function") {
+//     action(dispatch);
+//   }
+// };
 
 const composedEnhancers = composeEnhancer(applyMiddleware(...middleWares));
 export const store = createStore(
