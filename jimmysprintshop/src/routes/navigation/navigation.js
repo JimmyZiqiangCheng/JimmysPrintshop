@@ -1,7 +1,7 @@
-import { useContext } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { Outlet, Link } from "react-router-dom";
 import { ReactComponent as JCLogo } from "../../assets/logo_big.svg";
-import { userContext } from "../../contexts/user-context-provider";
+import { setCurrentUser } from "../../store/User/user-action";
 import { signOutUser } from "../../service/authentication/firebase-auth";
 import CartContainer from "../../components/cart-container/CartContainer";
 import {
@@ -9,12 +9,14 @@ import {
   NavLinksContainer,
   LogoContainer,
 } from "./navigation.styles";
+import { selectCurrentUser } from "../../store/User/user-selector";
 
 const Navigation = () => {
-  const { currentUser, setCurrentUser } = useContext(userContext);
+  const dispatch = useDispatch();
+  const currentUser = useSelector(selectCurrentUser);
   const handleSignOut = async () => {
     await signOutUser();
-    setCurrentUser(null);
+    dispatch(setCurrentUser(null));
   };
   return (
     <>

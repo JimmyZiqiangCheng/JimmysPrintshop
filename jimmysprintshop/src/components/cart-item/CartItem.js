@@ -1,5 +1,6 @@
-import { useContext } from "react";
-import { cartContext } from "../../contexts/cart-context-provider";
+import { useDispatch, useSelector } from "react-redux";
+import { addItem, reduceItem } from "../../store/Cart/cart-action";
+import { selectCartItems } from "../../store/Cart/cart-selector";
 import {
   CartItemContainer,
   ItemImage,
@@ -8,13 +9,14 @@ import {
 } from "./cart-item.styles";
 
 const CartItem = ({ cartItem }) => {
-  const { addItem, reduceItem } = useContext(cartContext);
+  const cartItems = useSelector(selectCartItems);
+  const dispatch = useDispatch();
   const { name, imageUrl, quantity, price } = cartItem;
   const handleDecrease = () => {
-    reduceItem(cartItem);
+    dispatch(reduceItem(cartItems, cartItem));
   };
   const handleIncrease = () => {
-    addItem(cartItem);
+    dispatch(addItem(cartItems, cartItem));
   };
   return (
     <CartItemContainer>

@@ -1,10 +1,10 @@
+import { useSelector } from "react-redux";
+import { selectShowCart } from "../../store/Cart/cart-selector";
 import CartIcon from "../cart-icon/CartIcon";
 import CartDropdown from "../cart-dropdown/CartDropdown";
-import { useContext } from "react";
-import { cartContext } from "../../contexts/cart-context-provider";
 
 const CartContainer = () => {
-  const { showCart } = useContext(cartContext);
+  const showCart = useSelector(selectShowCart);
   return (
     <>
       <CartIcon />

@@ -1,5 +1,9 @@
-import { useContext } from "react";
-import { cartContext } from "../../contexts/cart-context-provider";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  selectCartItems,
+  selectCartTotal,
+} from "../../store/Cart/cart-selector";
+import { toggleShowCart } from "../../store/Cart/cart-action";
 import { useNavigate } from "react-router-dom";
 import { useOutsideClick } from "../../utils/customHooks/useOutsideClick";
 import Button from "../button/Button";
@@ -11,12 +15,14 @@ import {
   TotalItem,
 } from "./cart-dropdown.styles";
 const CartDropdown = () => {
-  const { setShowCart, cartItems, cartTotal } = useContext(cartContext);
-  const ref = useOutsideClick(() => setShowCart(false));
+  const dispatch = useDispatch();
+  const cartItems = useSelector(selectCartItems);
+  const cartTotal = useSelector(selectCartTotal);
+  const ref = useOutsideClick(() => dispatch(toggleShowCart(false)));
   const navigate = useNavigate();
   const handleGoToCheckout = () => {
     navigate("/checkout");
-    setShowCart(false);
+    dispatch(toggleShowCart(false));
   };
   return (
     <CartDropdownContainer ref={ref}>

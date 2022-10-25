@@ -5,10 +5,11 @@ import {
   BodyContainer,
 } from "./directory-card.styles";
 
-const DirectoryCard = ({ title, url }) => {
+const DirectoryCard = ({ category }) => {
+  const { url, route, title } = category;
   const navigate = useNavigate();
   const handleDirectoryNavigate = () => {
-    navigate(url);
+    navigate(route);
   };
   return (
     <DirectoryCardContainer onClick={handleDirectoryNavigate}>

@@ -36,8 +36,8 @@ const CATEGORIES = [
 const Directory = () => {
   return (
     <DirectoryContainer>
-      {CATEGORIES.map(({ title, url, id }) => (
-        <DirectoryCard title={title} url={url} key={id} />
+      {CATEGORIES.map((category) => (
+        <DirectoryCard category={category} key={category.id} />
       ))}
     </DirectoryContainer>
   );
