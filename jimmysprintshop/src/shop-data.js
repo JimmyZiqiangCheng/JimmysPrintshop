@@ -1,12 +1,12 @@
 const SHOP_DATA = [
   {
-    title: "Hats",
+    title: "HustleAndBustle",
     items: [
       {
         id: 1,
-        name: "Brown Brim",
-        imageUrl: "https://i.ibb.co/ZYW3VTp/brown-brim.png",
-        price: 25,
+        name: "Ice cream Dance",
+        imageUrl: "https://i.ibb.co/S6g7ffS/000798030019.jpg",
+        price: 35,
       },
       {
         id: 2,

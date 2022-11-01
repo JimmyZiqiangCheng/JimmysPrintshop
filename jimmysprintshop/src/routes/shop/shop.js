@@ -1,9 +1,8 @@
 import { Suspense, useEffect, lazy } from "react";
 import { Routes, Route } from "react-router-dom";
-import { fetchCategoriesAsync } from "../../store/Categories/categories-action";
 import CategoriesPreview from "../categories-preview/CategoriesPreview";
+import { fetchCategoriesAsync } from "../../store/Categories/categories-action";
 import { useDispatch } from "react-redux";
-
 const Category = lazy(() => import("../category/Category"));
 
 const Shop = () => {
