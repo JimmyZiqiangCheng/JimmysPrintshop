@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const CartItemContainer = styled.div`
   width: 100%;
   display: flex;
+  align-items: center;
   height: 80px;
   margin-bottom: 15px;
 `;
@@ -11,8 +12,22 @@ export const ItemImage = styled.img`
   width: 30%;
 `;
 
+export const RightColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+`;
+export const AdjustContainer = styled.div`
+  display: flex;
+`;
+
 export const AdjustButton = styled.div`
   align-self: center;
+  cursor: pointer;
+`;
+
+export const RemoveButton = styled.div`
+  font-size: 9px;
   cursor: pointer;
 `;
 

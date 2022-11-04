@@ -33,6 +33,7 @@ export const TotalItem = styled.span`
 export const CartItems = styled.div`
   height: 240px;
   display: flex;
+  gap: 8px;
   flex-direction: column;
   overflow: scroll;
 `;

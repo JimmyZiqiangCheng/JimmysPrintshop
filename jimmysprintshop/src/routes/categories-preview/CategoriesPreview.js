@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+
 import CategoryPreview from "../../components/category-preview/CategoryPreview";
 import {
   selectCategoriesIsLoading,

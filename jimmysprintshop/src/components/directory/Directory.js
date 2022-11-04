@@ -3,33 +3,33 @@ import { DirectoryContainer } from "./directory.styles";
 const CATEGORIES = [
   {
     id: 1,
-    title: "Near the Mountain",
+    title: "Near Mountain",
     url: "https://i.ibb.co/MhjggyW/Banff-night.jpg",
-    route: "shop/hats",
+    route: "shop/near_mountain",
   },
   {
     id: 2,
     title: "By the Sea",
     url: "https://i.ibb.co/x8pjg53/50962270216-0619b828d7-o.jpg",
-    route: "shop/jackets",
+    route: "shop/by_the_sea",
   },
   {
     id: 3,
     title: "Light Seeker",
     url: "https://i.ibb.co/BnvJ3PS/light-seeker.jpg",
-    route: "shop/sneakers",
+    route: "shop/light_seeker",
   },
   {
     id: 4,
     title: "Hustle and Bustle",
     url: "https://i.ibb.co/xGLNvR4/2022-8-05-P400-39.jpg",
-    route: "shop/womens",
+    route: "shop/hustle_and_bustle",
   },
   {
     id: 5,
     title: "Time Travel",
     url: "https://i.ibb.co/FxxNKtT/DSC0701.jpg",
-    route: "shop/mens",
+    route: "shop/time_travel",
   },
 ];
 

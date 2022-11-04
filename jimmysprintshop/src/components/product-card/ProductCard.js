@@ -2,7 +2,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { addItem } from "../../store/Cart/cart-action";
 import { selectCartItems } from "../../store/Cart/cart-selector";
 import Button, { BUTTON_TYPE_CLASSES } from "../button/Button";
-import "./product-card.styles.scss";
+import {
+  ProductCardContainer,
+  ImageContainer,
+  Footer,
+} from "./product-card.styles.js";
 
 const ProductCard = ({ product }) => {
   const dispatch = useDispatch();
@@ -11,18 +15,18 @@ const ProductCard = ({ product }) => {
     dispatch(addItem(cartItems, product));
   };
   return (
-    <div className="product-card-container">
-      <div className="image-container">
+    <ProductCardContainer>
+      <ImageContainer>
         <img src={product.imageUrl} alt={product.name} />
-      </div>
+      </ImageContainer>
       <Button buttonType={BUTTON_TYPE_CLASSES.white} onClick={handleClick}>
         Add to Cart
       </Button>
-      <div className="footer">
+      <Footer>
         <span className="name">{product.name}</span>
-        <span className="price">{product.price}</span>
-      </div>
-    </div>
+        <span className="price">${product.price}</span>
+      </Footer>
+    </ProductCardContainer>
   );
 };
 

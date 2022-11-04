@@ -9,7 +9,7 @@ const CategoryPreview = ({ title, products }) => {
   return (
     <CategoryPreviewContainer>
       <h2>
-        <Title to={title}>{title.toUpperCase()}</Title>
+        <Title to={title}>{title.toUpperCase().replaceAll("_", " ")}</Title>
       </h2>
       <Preview>
         {products

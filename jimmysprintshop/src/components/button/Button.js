@@ -1,4 +1,9 @@
-import { BaseButton, BlueButton, WhiteButton } from "./button.styles";
+import {
+  BaseButton,
+  BlueButton,
+  ButtonSpinner,
+  WhiteButton,
+} from "./button.styles";
 
 export const BUTTON_TYPE_CLASSES = {
   base: "base-button",
@@ -13,14 +18,15 @@ const getButton = (buttonType = BUTTON_TYPE_CLASSES.base) =>
     [BUTTON_TYPE_CLASSES.white]: WhiteButton,
   }[buttonType]);
 
-const Button = ({ children, buttonType, ...otherProps }) => {
+const Button = ({ children, buttonType, isLoading, ...otherProps }) => {
   const CustomButton = getButton(buttonType);
   return (
     <CustomButton
       className={`button-container ${BUTTON_TYPE_CLASSES[buttonType]}`}
+      disabled={isLoading}
       {...otherProps}
     >
-      {children}
+      {isLoading ? <ButtonSpinner /> : children}
     </CustomButton>
   );
 };

@@ -1,4 +1,5 @@
-.product-card-container {
+import styled from "styled-components";
+export const ProductCardContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -6,18 +7,6 @@
   align-items: center;
   position: relative;
   overflow: hidden;
-
-  .image-container {
-    width: 100%;
-    height: 95%;
-    margin-bottom: 5px;
-    overflow: hidden;
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-  }
 
   button {
     width: 80%;
@@ -39,21 +28,33 @@
       display: flex;
     }
   }
+`;
 
-  .footer {
+export const ImageContainer = styled.div`
+  width: 100%;
+  height: 95%;
+  margin-bottom: 5px;
+  overflow: hidden;
+  img {
     width: 100%;
-    height: 5%;
-    display: flex;
-    justify-content: space-between;
-    font-size: 18px;
-
-    .name {
-      width: 90%;
-      margin-bottom: 15px;
-    }
-
-    .price {
-      width: 10%;
-    }
+    height: 100%;
+    object-fit: cover;
   }
-}
+`;
+
+export const Footer = styled.div`
+  width: 100%;
+  height: 5%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+
+  .name {
+    width: 90%;
+    margin-bottom: 15px;
+  }
+
+  .price {
+    width: 10%;
+  }
+`;

@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import { Outlet, Link } from "react-router-dom";
+
 import { ReactComponent as JCLogo } from "../../assets/logo_big.svg";
 import { setCurrentUser } from "../../store/User/user-action";
 import { signOutUser } from "../../service/authentication/firebase-auth";
