@@ -17,6 +17,7 @@ const Checkout = () => {
   const handlePay = () => navigate("/payment");
   return (
     <div className="checkout-container">
+      <h2>Checkout</h2>
       <div className="checkout-header">
         {headerItems.map((headerItem, i) => (
           <div key={i} className="header-block">
@@ -24,11 +25,13 @@ const Checkout = () => {
           </div>
         ))}
       </div>
-      {cartItems.map((item) => (
-        <CheckoutItem key={item.id} cartItem={item} />
-      ))}
+      <div className="cart-items-container">
+        {cartItems.map((item) => (
+          <CheckoutItem key={item.id} cartItem={item} />
+        ))}
+      </div>
       <span className="total"> Total: ${cartTotal}</span>
-      <Button onClick={handlePay}> Pay Now </Button>
+      <Button onClick={handlePay}> Check Out </Button>
     </div>
   );
 };

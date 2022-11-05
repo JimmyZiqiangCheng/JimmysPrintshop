@@ -27,10 +27,11 @@ export const CheckoutItemContainer = styled.div`
 export const ImageContainer = styled.div`
   width: 23%;
   padding-right: 15px;
+  max-height: 140px;
+  overflow: hidden;
 
   img {
     width: 100%;
-    height: 100%;
   }
 `;
 
