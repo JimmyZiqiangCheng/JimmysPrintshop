@@ -10,7 +10,6 @@ import Navigation from "./routes/navigation/navigation";
 import Home from "./routes/home/home";
 import Payment from "./routes/payment/Payment";
 import Spinner from "./components/spinner/Spinner";
-import ProtectedRoute from "./components/protected-route/ProtectedRoute";
 import RedirectRoute from "./components/redirect-route/RedirectRoute";
 
 const Checkout = lazy(() => import("./routes/checkout/Checkout"));
@@ -36,15 +35,15 @@ function App() {
           <Route
             path="shop/*"
             element={
-              <ProtectedRoute>
+              <RedirectRoute redirect="/auth" requireUser={false}>
                 <Shop />
-              </ProtectedRoute>
+              </RedirectRoute>
             }
           />
           <Route
             path="auth"
             element={
-              <RedirectRoute>
+              <RedirectRoute redirect="/" requireUser={true}>
                 <AuthPage />
               </RedirectRoute>
             }
@@ -52,17 +51,17 @@ function App() {
           <Route
             path="checkout"
             element={
-              <ProtectedRoute>
+              <RedirectRoute redirect="/auth" requireUser={false}>
                 <Checkout />
-              </ProtectedRoute>
+              </RedirectRoute>
             }
           />
           <Route
             path="payment"
             element={
-              <ProtectedRoute>
+              <RedirectRoute redirect="/auth" requireUser={false}>
                 <Payment />
-              </ProtectedRoute>
+              </RedirectRoute>
             }
           />
         </Route>

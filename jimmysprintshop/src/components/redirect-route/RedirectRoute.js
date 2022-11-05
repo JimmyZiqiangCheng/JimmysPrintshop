@@ -2,10 +2,12 @@ import { Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectCurrentUser } from "../../store/User/user-selector";
 
-const RedirectRoute = ({ children }) => {
+const RedirectRoute = ({ children, redirect, requireUser }) => {
   const currentUser = useSelector(selectCurrentUser);
-  if (currentUser) {
-    return <Navigate to="/" replace />;
+  if (requireUser) {
+    if (currentUser) return <Navigate to={redirect} replace />;
+  } else {
+    if (!currentUser) return <Navigate to={redirect} replace />;
   }
   return children;
 };
