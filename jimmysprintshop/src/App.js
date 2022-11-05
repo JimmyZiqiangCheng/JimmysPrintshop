@@ -10,6 +10,8 @@ import Navigation from "./routes/navigation/navigation";
 import Home from "./routes/home/home";
 import Payment from "./routes/payment/Payment";
 import Spinner from "./components/spinner/Spinner";
+import ProtectedRoute from "./components/protected-route/ProtectedRoute";
+import RedirectRoute from "./components/redirect-route/RedirectRoute";
 
 const Checkout = lazy(() => import("./routes/checkout/Checkout"));
 const Shop = lazy(() => import("./routes/shop/shop"));
@@ -31,10 +33,38 @@ function App() {
       <Routes>
         <Route path="/" element={<Navigation />}>
           <Route index element={<Home />} />
-          <Route path="shop/*" element={<Shop />} />
-          <Route path="auth" element={<AuthPage />} />
-          <Route path="checkout" element={<Checkout />} />
-          <Route path="payment" element={<Payment />} />
+          <Route
+            path="shop/*"
+            element={
+              <ProtectedRoute>
+                <Shop />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="auth"
+            element={
+              <RedirectRoute>
+                <AuthPage />
+              </RedirectRoute>
+            }
+          />
+          <Route
+            path="checkout"
+            element={
+              <ProtectedRoute>
+                <Checkout />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="payment"
+            element={
+              <ProtectedRoute>
+                <Payment />
+              </ProtectedRoute>
+            }
+          />
         </Route>
       </Routes>
     </Suspense>
