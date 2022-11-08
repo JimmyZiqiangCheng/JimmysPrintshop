@@ -11,6 +11,7 @@ export const CheckoutContainer = styled.div`
 
 export const CheckoutHeader = styled.div`
   width: 100%;
+  min-width: 400px;
   padding: 10px 0;
   display: flex;
   justify-content: space-between;

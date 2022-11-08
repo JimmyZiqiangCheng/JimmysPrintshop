@@ -6,13 +6,13 @@ import { setCurrentUser } from "../../store/User/user-action";
 import { signOutUser } from "../../service/authentication/firebase-auth";
 import CartContainer from "../../components/cart-container/CartContainer";
 import {
-  NavigationContainer,
+  NavbarContainer,
   NavLinksContainer,
   LogoContainer,
-} from "./navigation.styles";
+} from "./navbar.styles";
 import { selectCurrentUser } from "../../store/User/user-selector";
 
-const Navigation = () => {
+const Navbar = () => {
   const dispatch = useDispatch();
   const currentUser = useSelector(selectCurrentUser);
   const handleSignOut = async () => {
@@ -21,7 +21,7 @@ const Navigation = () => {
   };
   return (
     <>
-      <NavigationContainer>
+      <NavbarContainer>
         <LogoContainer to="/">
           <JCLogo className="logo" />
         </LogoContainer>
@@ -43,10 +43,10 @@ const Navigation = () => {
           )}
           <CartContainer />
         </NavLinksContainer>
-      </NavigationContainer>
+      </NavbarContainer>
       <Outlet />
     </>
   );
 };
 
-export default Navigation;
+export default Navbar;

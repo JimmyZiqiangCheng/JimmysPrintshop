@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import { onAuthStateChangedListener } from "./service/authentication/firebase-auth";
 import { createUser } from "./service/database/firebase-store";
 import { setCurrentUser } from "./store/User/user-action";
-import Navigation from "./routes/navigation/Navigation";
+import Navbar from "./routes/navbar/Navbar";
 import Home from "./routes/home/Home";
 import Payment from "./routes/payment/Payment";
 import Spinner from "./components/spinner/Spinner";
@@ -30,7 +30,7 @@ function App() {
   return (
     <Suspense fallback={<Spinner />}>
       <Routes>
-        <Route path="/" element={<Navigation />}>
+        <Route path="/" element={<Navbar />}>
           <Route index element={<Home />} />
           <Route path="shop/*" element={<Shop />} />
           <Route
