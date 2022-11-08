@@ -11,7 +11,7 @@ export const CategoryPreviewContainer = styled.div`
 export const Title = styled(Link)`
   font-size: 28px;
   cursor: pointer;
-  a {
+  span {
     font-size: 18px;
     font-weight: normal;
     position: relative;
