@@ -8,13 +8,13 @@ import { createUser } from "./service/database/firebase-store";
 import { setCurrentUser } from "./store/User/user-action";
 import Navbar from "./routes/navbar/Navbar";
 import Home from "./routes/home/Home";
-import Payment from "./routes/payment/Payment";
 import Spinner from "./components/spinner/Spinner";
 import RedirectRoute from "./components/redirect-route/RedirectRoute";
 
 const Checkout = lazy(() => import("./routes/checkout/Checkout"));
 const Shop = lazy(() => import("./routes/shop/shop"));
 const AuthPage = lazy(() => import("./routes/authPage/authPage"));
+const Payment = lazy(() => import("./routes/payment/Payment"));
 
 function App() {
   const dispatch = useDispatch();
