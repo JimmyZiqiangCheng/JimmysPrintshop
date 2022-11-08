@@ -1,6 +1,6 @@
 import Directory from "../../components/directory/Directory";
 import { HomeContainer } from "./home.styles";
-const Home = () => {
+const HomePage = () => {
   return (
     <HomeContainer>
       <h1>Jimmy Cheng Photography</h1>
@@ -9,4 +9,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomePage;

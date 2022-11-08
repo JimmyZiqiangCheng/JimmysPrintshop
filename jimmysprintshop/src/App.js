@@ -7,7 +7,7 @@ import { onAuthStateChangedListener } from "./service/authentication/firebase-au
 import { createUser } from "./service/database/firebase-store";
 import { setCurrentUser } from "./store/User/user-action";
 import Navbar from "./routes/navbar/Navbar";
-import Home from "./routes/home/Home";
+import HomePage from "./routes/homepage/HomePage";
 import Spinner from "./components/spinner/Spinner";
 import RedirectRoute from "./components/redirect-route/RedirectRoute";
 
@@ -31,7 +31,7 @@ function App() {
     <Suspense fallback={<Spinner />}>
       <Routes>
         <Route path="/" element={<Navbar />}>
-          <Route index element={<Home />} />
+          <Route index element={<HomePage />} />
           <Route path="shop/*" element={<Shop />} />
           <Route
             path="auth"
