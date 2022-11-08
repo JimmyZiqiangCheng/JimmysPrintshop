@@ -1,18 +1,11 @@
-import { useDispatch, useSelector } from "react-redux";
-import { addItem } from "../../store/Cart/cart-action";
-import { selectCartItems } from "../../store/Cart/cart-selector";
+import { useNavigate } from "react-router-dom";
 import Button, { BUTTON_TYPE_CLASSES } from "../button/Button";
-import {
-  ProductCardContainer,
-  ImageContainer,
-  Footer,
-} from "./product-card.styles.js";
+import { ProductCardContainer, ImageContainer } from "./product-card.styles.js";
 
-const ProductCard = ({ product }) => {
-  const dispatch = useDispatch();
-  const cartItems = useSelector(selectCartItems);
+const ProductCard = ({ product, category }) => {
+  const navigate = useNavigate();
   const handleClick = () => {
-    dispatch(addItem(cartItems, product));
+    navigate(`/shop/${category}/${product.id}`);
   };
   return (
     <ProductCardContainer>
@@ -20,12 +13,8 @@ const ProductCard = ({ product }) => {
         <img src={product.imageUrl} alt={product.name} />
       </ImageContainer>
       <Button buttonType={BUTTON_TYPE_CLASSES.white} onClick={handleClick}>
-        Add to Cart
+        {product.name}
       </Button>
-      <Footer>
-        <span className="name">{product.name}</span>
-        <span className="price">${product.price}</span>
-      </Footer>
     </ProductCardContainer>
   );
 };

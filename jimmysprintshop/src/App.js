@@ -6,8 +6,8 @@ import { useDispatch } from "react-redux";
 import { onAuthStateChangedListener } from "./service/authentication/firebase-auth";
 import { createUser } from "./service/database/firebase-store";
 import { setCurrentUser } from "./store/User/user-action";
-import Navigation from "./routes/navigation/navigation";
-import Home from "./routes/home/home";
+import Navigation from "./routes/navigation/Navigation";
+import Home from "./routes/home/Home";
 import Payment from "./routes/payment/Payment";
 import Spinner from "./components/spinner/Spinner";
 import RedirectRoute from "./components/redirect-route/RedirectRoute";
@@ -32,14 +32,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Navigation />}>
           <Route index element={<Home />} />
-          <Route
-            path="shop/*"
-            element={
-              <RedirectRoute redirect="/auth" requireUser={false}>
-                <Shop />
-              </RedirectRoute>
-            }
-          />
+          <Route path="shop/*" element={<Shop />} />
           <Route
             path="auth"
             element={
@@ -48,14 +41,7 @@ function App() {
               </RedirectRoute>
             }
           />
-          <Route
-            path="checkout"
-            element={
-              <RedirectRoute redirect="/auth" requireUser={false}>
-                <Checkout />
-              </RedirectRoute>
-            }
-          />
+          <Route path="checkout" element={<Checkout />} />
           <Route
             path="payment"
             element={

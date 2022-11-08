@@ -6,6 +6,7 @@ import { fetchCategoriesAsync } from "../../store/Categories/categories-action";
 import { useDispatch } from "react-redux";
 
 const Category = lazy(() => import("../category/Category"));
+const ProductDetail = lazy(() => import("../product-detail/ProductDetail"));
 
 const Shop = () => {
   const dispatch = useDispatch();
@@ -18,6 +19,7 @@ const Shop = () => {
       <Routes>
         <Route index element={<CategoriesPreview />} />
         <Route path=":category" element={<Category />} />
+        <Route path=":category/:productId" element={<ProductDetail />} />
       </Routes>
     </Suspense>
   );

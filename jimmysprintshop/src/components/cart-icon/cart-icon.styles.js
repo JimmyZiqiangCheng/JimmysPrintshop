@@ -9,6 +9,13 @@ export const CartIconContainer = styled.div`
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  transition: 0.2s ease-in-out;
+  &:hover {
+    scale: 1.1;
+  }
+  &:active {
+    scale: 1;
+  }
 `;
 
 export const CartSVG = styled(Icon)`

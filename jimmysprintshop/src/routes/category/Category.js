@@ -40,7 +40,6 @@ const Category = () => {
   };
 
   const debouncedHandleSearch = debounce(handleSearch, 0.3);
-
   return (
     <CategoryContainer>
       <CategoryTitle>
@@ -57,7 +56,11 @@ const Category = () => {
         <ProductsContainer>
           {filteredProducts
             ? filteredProducts.map((product) => (
-                <ProductCard key={product.id} product={product} />
+                <ProductCard
+                  key={product.id}
+                  product={product}
+                  category={category}
+                />
               ))
             : null}
         </ProductsContainer>

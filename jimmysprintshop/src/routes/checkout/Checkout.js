@@ -7,7 +7,13 @@ import {
   selectCartTotal,
 } from "../../store/Cart/cart-selector";
 import Button from "../../components/button/Button";
-import "./checkout.styles.scss";
+import {
+  CheckoutContainer,
+  CheckoutHeader,
+  CartItemContainer,
+  HeaderBlock,
+  TotalAmount,
+} from "./checkout.styles.js";
 
 const headerItems = ["Product", "Description", "Quantity", "Price", "Remove"];
 const Checkout = () => {
@@ -16,23 +22,25 @@ const Checkout = () => {
   const navigate = useNavigate();
   const handlePay = () => navigate("/payment");
   return (
-    <div className="checkout-container">
-      <h2>Checkout</h2>
-      <div className="checkout-header">
-        {headerItems.map((headerItem, i) => (
-          <div key={i} className="header-block">
-            <span>{headerItem}</span>
-          </div>
-        ))}
+    <CheckoutContainer>
+      <h2>Check Out</h2>
+      <div>
+        <CheckoutHeader>
+          {headerItems.map((headerItem, i) => (
+            <HeaderBlock key={i}>
+              <span>{headerItem}</span>
+            </HeaderBlock>
+          ))}
+        </CheckoutHeader>
+        <CartItemContainer>
+          {cartItems.map((item) => (
+            <CheckoutItem key={item.name} cartItem={item} />
+          ))}
+        </CartItemContainer>
       </div>
-      <div className="cart-items-container">
-        {cartItems.map((item) => (
-          <CheckoutItem key={item.id} cartItem={item} />
-        ))}
-      </div>
-      <span className="total"> Total: ${cartTotal}</span>
+      <TotalAmount> Total: ${cartTotal}</TotalAmount>
       <Button onClick={handlePay}> Check Out </Button>
-    </div>
+    </CheckoutContainer>
   );
 };
 

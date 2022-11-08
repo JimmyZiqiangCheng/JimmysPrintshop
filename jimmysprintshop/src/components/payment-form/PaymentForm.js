@@ -17,7 +17,7 @@ import {
   ButtonContainer,
   PaymentButton,
   CardElementContainer,
-} from "./PaymentForm.styles";
+} from "./payment-form.styles";
 
 const PaymentForm = () => {
   const cartItems = useSelector(selectCartItems);

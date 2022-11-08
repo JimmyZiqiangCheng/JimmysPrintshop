@@ -43,6 +43,7 @@ export const DirectoryCardContainer = styled.div`
   justify-content: center;
   border: 0.5px solid black;
   overflow: hidden;
+  transition: 0.3s ease-in-out;
   &:hover {
     cursor: pointer;
     & ${BackgroundImage} {
@@ -51,8 +52,11 @@ export const DirectoryCardContainer = styled.div`
     }
 
     & ${BodyContainer} {
+      transform: scale(1.2);
+      transform-origin: center;
       opacity: 0.9;
       transition: 0.3s ease-in-out;
+
       &:hover {
         opacity: 0.85;
         background-color: black;

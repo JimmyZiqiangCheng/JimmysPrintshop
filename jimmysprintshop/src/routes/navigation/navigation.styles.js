@@ -14,6 +14,13 @@ export const LogoContainer = styled(Link)`
     width: 36px;
     height: 36px;
   }
+  transition: 0.3s ease-in-out;
+  &:hover {
+    scale: 1.1;
+  }
+  &:active {
+    scale: 0.9;
+  }
 `;
 
 export const NavLinksContainer = styled.div`
@@ -23,5 +30,29 @@ export const NavLinksContainer = styled.div`
   gap: 24px;
   .nav-link {
     cursor: pointer;
+    position: relative;
+    transition: 0.3s ease-in-out;
+    &:hover {
+      scale: 1.1;
+    }
+    &:active {
+      scale: 0.9;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      width: 90%;
+      transform: scaleX(0);
+      height: 1px;
+      bottom: -0.4em;
+      left: 5%;
+      background-color: black;
+      transform-origin: bottom;
+      transition: transform 0.3s ease-out;
+    }
+    &:hover::after {
+      transform: scaleX(1);
+      transform-origin: bottom;
+    }
   }
 `;

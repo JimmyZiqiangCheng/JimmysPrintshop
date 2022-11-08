@@ -13,7 +13,9 @@ export const ProductCardContainer = styled.div`
     opacity: 0.9;
     position: absolute;
     top: 255px;
-    display: none;
+    text-transform: none;
+    transform: scale(0);
+    transition: 0.5s;
   }
 
   &:hover {
@@ -25,7 +27,8 @@ export const ProductCardContainer = styled.div`
 
     button {
       opacity: 0.75;
-      display: flex;
+      transform: scale(1);
+      transform-origin: bottom;
     }
   }
 `;
@@ -33,7 +36,6 @@ export const ProductCardContainer = styled.div`
 export const ImageContainer = styled.div`
   width: 100%;
   height: 95%;
-  margin-bottom: 5px;
   overflow: hidden;
   img {
     width: 100%;
@@ -44,17 +46,13 @@ export const ImageContainer = styled.div`
 
 export const Footer = styled.div`
   width: 100%;
-  height: 5%;
   display: flex;
-  justify-content: space-between;
+  height: 5%;
   font-size: 18px;
 
   .name {
-    width: 90%;
+    width: 100%;
     margin-bottom: 15px;
-  }
-
-  .price {
-    width: 10%;
+    text-align: center;
   }
 `;
