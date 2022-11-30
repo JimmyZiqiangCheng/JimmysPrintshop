@@ -1,9 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
-import {
-  selectCartItems,
-  selectCartTotal,
-} from "../../store/Cart/cart-selector";
-import { toggleShowCart } from "../../store/Cart/cart-action";
+import { selectCartItems, selectCartTotal } from "../../store/cart-slice";
+import { toggleShowCart } from "../../store/cart-slice";
 import { useNavigate } from "react-router-dom";
 import { useOutsideClick } from "../../utils/customHooks/useOutsideClick";
 import Button from "../button/Button";

@@ -2,9 +2,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-import { addItem } from "../../store/Cart/cart-action";
-import { selectCartItems } from "../../store/Cart/cart-selector";
-import { selectCategoriesMap } from "../../store/Categories/categories-selector";
+import { addItem } from "../../store/cart-slice";
+import { selectCartItems } from "../../store/cart-slice";
+import { selectCategoriesMap } from "../../store/categories-slice";
 import {
   ImageContainer,
   ImageInfoContainer,
@@ -55,7 +55,9 @@ const ProductDetail = () => {
   }, [productId, category, categories]);
 
   const handleClick = () => {
-    dispatch(addItem(cartItems, product, option, PRINT_OPTIONS[option].price));
+    dispatch(
+      addItem([...cartItems], product, option, PRINT_OPTIONS[option].price)
+    );
   };
 
   const handleSelect = (event) => {

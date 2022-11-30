@@ -1,6 +1,6 @@
 import { Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { selectCurrentUser } from "../../store/User/user-selector";
+import { selectCurrentUser } from "../../store/user-slice";
 
 const RedirectRoute = ({ children, redirect, requireUser }) => {
   const currentUser = useSelector(selectCurrentUser);

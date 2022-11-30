@@ -2,11 +2,8 @@ import { useState } from "react";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import {
-  selectCartItems,
-  selectCartTotal,
-} from "../../store/Cart/cart-selector";
-import { selectCurrentUser } from "../../store/User/user-selector";
+import { selectCartItems, selectCartTotal } from "../../store/cart-slice";
+import { selectCurrentUser } from "../../store/user-slice";
 
 import { BUTTON_TYPE_CLASSES } from "../button/Button";
 import {

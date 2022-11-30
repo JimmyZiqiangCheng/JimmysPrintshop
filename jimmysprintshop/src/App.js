@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 
 import { onAuthStateChangedListener } from "./service/authentication/firebase-auth";
 import { createUser } from "./service/database/firebase-store";
-import { setCurrentUser } from "./store/User/user-action";
+import { setCurrentUser } from "./store/user-slice";
 import Navbar from "./routes/navbar/Navbar";
 import HomePage from "./routes/homepage/HomePage";
 import Spinner from "./components/spinner/Spinner";

@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { toggleShowCart } from "../../store/Cart/cart-action";
+import { toggleShowCart } from "../../store/cart-slice";
 import {
   selectCartCount,
   selectShowCart,

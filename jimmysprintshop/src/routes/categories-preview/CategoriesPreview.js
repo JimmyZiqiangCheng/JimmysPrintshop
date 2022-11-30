@@ -4,7 +4,7 @@ import CategoryPreview from "../../components/category-preview/CategoryPreview";
 import {
   selectCategoriesIsLoading,
   selectCategoriesMap,
-} from "../../store/Categories/categories-selector";
+} from "../../store/categories-slice";
 import Spinner from "../../components/spinner/Spinner";
 const CategoriesPreview = () => {
   const categories = useSelector(selectCategoriesMap);

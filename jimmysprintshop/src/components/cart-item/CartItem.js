@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
-import { addItem, reduceItem, removeItem } from "../../store/Cart/cart-action";
-import { selectCartItems } from "../../store/Cart/cart-selector";
+import { addItem, reduceItem, removeItem } from "../../store/cart-slice";
+import { selectCartItems } from "../../store/cart-slice";
 import {
   CartItemContainer,
   ItemImage,
@@ -16,12 +16,12 @@ const CartItem = ({ cartItem }) => {
   const dispatch = useDispatch();
   const { name, imageUrl, quantity, price } = cartItem;
   const handleDecrease = () => {
-    dispatch(reduceItem(cartItems, cartItem));
+    dispatch(reduceItem([...cartItems], cartItem));
   };
   const handleIncrease = () => {
-    dispatch(addItem(cartItems, cartItem));
+    dispatch(addItem([...cartItems], cartItem));
   };
-  const handleRemove = () => dispatch(removeItem(cartItems, cartItem));
+  const handleRemove = () => dispatch(removeItem([...cartItems], cartItem));
   return (
     <CartItemContainer>
       <ItemImage src={imageUrl} alt={`${name}`} />

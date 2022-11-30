@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Outlet, Link } from "react-router-dom";
 
 import { ReactComponent as JCLogo } from "../../assets/logo_big.svg";
-import { setCurrentUser } from "../../store/User/user-action";
+import { setCurrentUser } from "../../store/user-slice";
 import { signOutUser } from "../../service/authentication/firebase-auth";
 import CartContainer from "../../components/cart-container/CartContainer";
 import {
@@ -10,7 +10,7 @@ import {
   NavLinksContainer,
   LogoContainer,
 } from "./navbar.styles";
-import { selectCurrentUser } from "../../store/User/user-selector";
+import { selectCurrentUser } from "../../store/user-slice";
 
 const Navbar = () => {
   const dispatch = useDispatch();
